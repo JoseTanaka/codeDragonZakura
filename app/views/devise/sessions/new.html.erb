@@ -1,0 +1,42 @@
+<div class="container-fluid login_image black-text">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-sm-4 col-sm-offset-4 col-xs-12">
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    	<%= f.input :email, placeholder: "メールアドレス", required: false, autofocus: true, label: false %>
+    	<%= f.input :password, placeholder: "パスワード",label: false,required: false%>
+    	<%= f.input :remember_me, label: "パスワードを保存", as: :boolean if devise_mapping.rememberable? %>
+    	<br>
+    	<div class="actions" align="center">
+    		<%= f.button :submit, "ログイン", class: 'btn btn-secondary test' %>
+  		</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+</div>
+
+<% end %>

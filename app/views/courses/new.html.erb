@@ -1,0 +1,12 @@
+<%= simple_form_for @course do |f| %>
+	<p>
+		<%= f.label :title, 'コース名' %><br>
+		<%= f.text_field :title %>
+	</p>
+<br>
+	<p>
+		<%= f.submit :作成 %>
+	</p>
+<% end %>
+<br>
+<%= link_to '<<コース一覧へ戻る', courses_path %>

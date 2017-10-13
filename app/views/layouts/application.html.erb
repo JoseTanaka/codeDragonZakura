@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CodeDragonZakura</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/earlyaccess/hannari.css" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<nav class="navbar">
+
+  		<div class="container">
+
+  			<div class="navbar-header wf-hannari">
+  				<div class="navbar-brand span2">コードラゴン桜</div><%= image_tag("cherry-blossom7.png", :size => "60x60", class: "margin") %>
+  			</div>
+
+  			<ul class="nav navbar-nav navbar-right">
+  				<% if user_signed_in? %>
+  					<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  				<%else %>
+  					<li><%= link_to "ログイン(アカウントを持っている方)", new_user_session_path %></li>
+  				<% end %>
+  			</ul>
+
+  			<ul class="nav navbar-nav navbar-right">
+  				<% if current_user && current_user.admin? %>
+  					<li><%= link_to "新しいコースの作成", new_course_path %></li>
+  					<li><%= link_to "新しいレッスンの作成", new_lesson_path %></li>
+  				<% end %>
+
+  		</div>
+
+  	</nav>
+
+<!--<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+
+    <%= yield %>
+  </body>
+</html>

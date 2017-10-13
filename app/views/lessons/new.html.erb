@@ -1,0 +1,26 @@
+<h1>新しいレッスンの作成</h1>
+
+<%= simple_form_for @lesson, url: lessons_path do |f| %>
+	<p>
+		<%= f.label :title, 'レッスン名' %><br>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :body, '内容' %><br>
+		<%= f.text_field :body %>
+	</p>
+
+	<p>
+		<%= f.label :course_id, 'コース'%><br>
+		<%= f.collection_select :course_id, Course.all, :id, :title %><br>
+	</p>
+
+
+	<p>
+		<%= f.submit :作成 %>
+	</p>
+
+	<p><%= link_to "<<コース一覧へ戻る", courses_path %></p>
+	
+<% end %>
